@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useProModal } from "@/hooks/use-pro-modal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -30,6 +31,7 @@ type MessageType = {
 };
 type ImageLoaderProps = { src: string };
 const ImagePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [images, setImages] = useState([]);
 
@@ -77,9 +79,13 @@ const ImagePage = () => {
       console.log("urls", urls);
       // setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
       console.log(error);
     } finally {
+      //This helps in refresh when we make a new request
       router.refresh();
     }
   };

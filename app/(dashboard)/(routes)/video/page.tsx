@@ -12,6 +12,7 @@ import Loader from "@/components/Loader";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useProModal } from "@/hooks/use-pro-modal";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { formSchema } from "./constant";
@@ -20,6 +21,7 @@ type MessageType = {
   role: String;
 };
 const VideoPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [video, setVideo] = useState("");
 
@@ -44,9 +46,12 @@ const VideoPage = () => {
       console.log(response);
       setVideo(response.data[0]);
       form.reset();
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
+      //This helps in refresh when we make a new request
       router.refresh();
     }
   };

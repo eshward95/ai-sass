@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import UserAvatar from "@/components/user-avatar";
+import { useProModal } from "@/hooks/use-pro-modal";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,6 +24,7 @@ type MessageType = {
   role: String;
 };
 const CodePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [messages, setMessages] = useState<MessageType[]>([]);
 
@@ -47,9 +49,13 @@ const CodePage = () => {
       });
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
       console.log(error);
     } finally {
+      //This helps in refresh when we make a new request
       router.refresh();
     }
   };
