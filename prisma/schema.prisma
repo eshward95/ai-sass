@@ -18,3 +18,20 @@ model UserApiLimit {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
+// Prisma directive that maps 
+// the stripeCustomerId field in the 
+// Prisma schema to an actual column name in the 
+// database called stripe_customer_id. 
+// This is useful when you want 
+// to use a different field name in 
+// your Prisma schema compared to 
+// what is used in your database table.
+
+model UserSubscription{
+  id String @id @default(cuid())
+  userId String @unique
+  stripeCustomerId String? @unique @map(name:"stripe_customer_id")
+  stripeSubscriptionId String? @map(name:"stripe_subscription_id")
+  stripePriceId String? @map(name:"stripe_price_id")
+  stripeCurrentPeriodEnd DateTime @map(name:"stripe_current_period_end")
+}

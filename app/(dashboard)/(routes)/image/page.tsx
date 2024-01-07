@@ -24,6 +24,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { amountOptions, formSchema, resolutionOptions } from "./constant";
 type MessageType = {
   content: String;
@@ -82,6 +83,8 @@ const ImagePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
       console.log(error);
     } finally {

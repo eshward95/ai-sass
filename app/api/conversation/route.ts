@@ -1,4 +1,5 @@
 import { checkApiLimit, increaseApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
@@ -20,10 +21,13 @@ export async function POST(req: Request) {
 
     const freeTrial = await checkApiLimit();
 
-    if (!freeTrial)
-      return new NextResponse("Please upgrade your account", { status: 403 });
+    const isPro = await checkSubscription();
 
-    await increaseApiLimit();
+    if (!freeTrial && !isPro)
+      return new NextResponse("Please upgrade your account", { status: 403 });
+    if (!isPro) {
+      await increaseApiLimit();
+    }
 
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",

@@ -6,13 +6,20 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
 
-const FreeCounter = ({ apiLimitCount = 0 }: { apiLimitCount: number }) => {
+const FreeCounter = ({
+  apiLimitCount = 0,
+  isPro,
+}: {
+  apiLimitCount: number;
+  isPro: boolean;
+}) => {
   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
   if (!mounted) return null;
+  if (isPro) return null;
 
   return (
     <div className="px-3">
