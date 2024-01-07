@@ -28,7 +28,7 @@ import toast from "react-hot-toast";
 import { Button } from "./ui/button";
 
 // import { tools } from "@/constants";
-export const tools = [
+const tools = [
   {
     label: "Conversation",
     icon: MessageSquare,
