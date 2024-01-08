@@ -2,7 +2,7 @@
 
 # AI Sass (Eddie)
 
-This project is an AI-powered Sass (Speech as Software) application that leverages Next.js, Shadcn, Zustand, Prisma, Clerk, Tailwind CSS, OpenAI, Replicate AI, and Crisp for customer support. It allows users to sign in using Google via Clerk's third-party authentication and generate code, text, images, videos, and audio through natural language interactions.
+This project leverages Next.js, Shadcn, Zustand, Prisma, Clerk, Tailwind CSS, OpenAI, Replicate AI, and Crisp for customer support. It allows users to sign in using Google via Clerk's third-party authentication and generate code, text, images, videos, and audio through natural language interactions.
 
 ## Features
 
