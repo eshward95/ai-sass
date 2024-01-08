@@ -31,8 +31,8 @@ To run this project locally, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/eshward95/ai-sass
+   cd ai-sass
    ```
 
 2. **Install Dependencies:**
