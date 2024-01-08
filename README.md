@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+# AI Sass (Eddie)
+
+This project is an AI-powered Sass (Speech as Software) application that leverages Next.js, Shadcn, Zustand, Prisma, Clerk, Tailwind CSS, OpenAI, Replicate AI, and Crisp for customer support. It allows users to sign in using Google via Clerk's third-party authentication and generate code, text, images, videos, and audio through natural language interactions.
+
+## Features
+
+- **Conversational Interface:** Interact with AI models to generate content through natural language.
+- **Code Generation:** Create code snippets and scripts based on conversational prompts.
+- **Image Generation:** Generate images based on descriptions or keywords.
+- **Video Generation:** Create videos based on specified criteria or content descriptions.
+- **Audio Generation:** Generate audio clips or tracks through conversational input.
+- **Crisp Integration:** Use Crisp for customer support, questions, or feedback.
+
+## Technologies Used
+
+- **Next.js:** Framework for building React applications.
+- **Shadcn:** Simple React component tool and not library 
+- **Zustand:** State managementReact.
+- **Prisma:** ORM 
+- **Clerk:** Third-party authentication for Google sign-in and user management.
+- **Tailwind CSS:** Utility-first CSS framework for building custom designs.
+- **OpenAI:** AI models for generating text, images, videos, and audio.
+- **Replicate AI:** AI models for audio and video generations
+- **Crisp:** Customer support and feedback integration.
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Set Up Environment Variables:**
+   [Include instructions on setting up any necessary environment variables or configuration files.]
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Run the Application:**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+5. **Sign In and Make Generations:**
+   - Access the application and sign in using Google via Clerk's third-party authentication.
+   - Use the conversational interface to create code, text, images, videos, or audio based on your preferences.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Upon signing in, engage with the conversational AI to initiate content generation.
+- For customer support or inquiries, use the Crisp integration to chat with support representatives.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
